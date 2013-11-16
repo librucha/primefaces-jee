@@ -1,0 +1,66 @@
+body {
+	margin: 0px;
+	padding: 0 6px 0 6px;
+	color: #616161;
+}
+
+h1,h2,h3 {
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 1.6em;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1em;
+	margin-top: 20px;
+}
+
+ul {
+	
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img {
+	border: none;
+}
+
+img.left {
+	float: left;
+	margin: 0 20px 0 0;
+}
+
+img.right {
+	float: right;
+	margin: 0 0 0 20px;
+}
+
+.ui-widget {
+	font-size: 12px !important;
+}
+
+.ui-dialog {
+	border-radius: 5px 5px 5px 5px;
+}
+
+#content-panel  .ui-layout-container {
+	overflow-x: visible !important;
+	overflow-y: visible !important;
+}
+
+.right {
+	text-align: right;
+}

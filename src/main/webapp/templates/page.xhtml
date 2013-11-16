@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html" locale="#{languageSwitcherBean.selectedLanguage}">
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="EmulateIE8"/>
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>#{empty pageTitle ? msg['application.name'] : pageTitle}</title>
+        </f:facet>
+        <link rel="icon" href="#{resource['favicon.ico']}"/>
+        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/default.css"/>
+
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="info-growl" autoUpdate="true" showDetail="true" showSummary="true" severity="info"/>
+        <p:growl id="error-growl" autoUpdate="true" showDetail="true" showSummary="true" sticky="true"
+                 severity="warn,error,fatal"/>
+
+        <ui:insert name="page">
+            <p:layout fullPage="true" stateful="true">
+
+                <!-- NORTH -->
+                <p:layoutUnit id="header" position="north" gutter="0">
+                    <ui:insert name="header">
+                        <ui:include src="/templates/layout/header.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <!-- SOUTH -->
+                <p:layoutUnit id="footer" position="south" size="26" style="text-align: right; font-weight: bold;">
+                    <ui:insert name="footer">
+                        <ui:include src="/templates/layout/footer.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <!-- WEST -->
+                <p:layoutUnit id="menu" position="west" resizable="true" collapsible="false" header="#{msg['west']}"
+                              minSize="250">
+                    <ui:insert name="menu">
+                        <ui:include src="/templates/layout/menu.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <!-- EAST -->
+                <p:layoutUnit id="info" position="east" resizable="true" header="#{msg['east']}" minSize="250">
+                    <ui:insert name="info">
+                        <ui:include src="/templates/layout/info.xhtml"/>
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <!-- CENTER -->
+                <p:layoutUnit id="content" position="center" gutter="0">
+                    <p:outputPanel id="content-panel" layout="block">
+                        <ui:insert name="content">
+                            <ui:include src="/templates/layout/content.xhtml"/>
+                        </ui:insert>
+                    </p:outputPanel>
+                </p:layoutUnit>
+            </p:layout>
+
+        </ui:insert>
+    </h:body>
+</f:view>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+    <ui:composition>
+        <h:link outcome="/index">
+            <p:graphicImage id="app-logo" alt="#{msg['application.owner']}" name="img/logo.png"
+                            title="#{msg['application.owner']}" style="float: left;padding: 10px 0 0 10px;"/>
+        </h:link>
+        <h:form style="float: right">
+            <h:outputText value="#{msg['select.language']}"/>
+            <p:spacer width="10"/>
+            <p:selectOneMenu value="#{languageSwitcherBean.selectedLanguage}" style="margin: 15px 5px -7px 0;"
+                             converter="#{localeConverter}">
+                <p:ajax listener="#{languageSwitcherBean.selectLanguage}" update="@all"/>
+                <f:selectItems value="#{languageSwitcherBean.languages}" var="locale" itemLabel="#{locale.language}"/>
+            </p:selectOneMenu>
+        </h:form>
+    </ui:composition>
+</h:body>
+</html>
